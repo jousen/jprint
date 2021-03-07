@@ -1,0 +1,3 @@
+include ':jprint'
+include ':app'
+rootProject.name = "JPrint"
