@@ -8,7 +8,7 @@
 
 ## 1、Feature 特性
 
-- Support Android 5.1+       Android 5.1以上系统版本支持
+- Support Android 5.0+       Android 5.0以上系统版本支持
 - Support Only AndroidX    只支持 AndroidX
 - Supports ESC and TSC（Label） Command 支持ESC小票和TSC标签打印命令
 
@@ -31,7 +31,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.jousen:jprint:2.0'
+    implementation 'com.github.jousen:jprint:2.2'
 }
 ```
 
