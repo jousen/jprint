@@ -30,8 +30,12 @@ allprojects {
 2、Add dependencies 
 
 ```
+[![](https://jitpack.io/v/jousen/jprint.svg)](https://jitpack.io/#jousen/jprint)
+```
+
+```
 dependencies {
-    implementation 'com.github.jousen:jprint:2.2'
+    implementation 'com.github.jousen:jprint:2.5'
 }
 ```
 
