@@ -33,13 +33,13 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.jousen:jprint:2.5'
+    implementation 'com.github.jousen:jprint:2.6'
 }
 ```
 
 ## 3、Usage 使用
 
-##### 1、Auto Import Bellow Permission 已自动添加下面的权限
+##### 1、Add Bellow Permission 添加下面的权限
 
 ```
 <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -48,7 +48,7 @@ dependencies {
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-if Android 6.0+ ，need android.permission.ACCESS_COARSE_LOCATION and android.permission.ACCESS_FINE_LOCATION for find BluetoothDevice 
+if Android 6.0+ ，need android.permission.ACCESS_COARSE_LOCATION and android.permission.ACCESS_FINE_LOCATION to find BluetoothDevice 
 
 大于Android 6.0 ，需要申请android.permission.ACCESS_COARSE_LOCATION 和 android.permission.ACCESS_FINE_LOCATION，用于发现周围的蓝牙设备
 
@@ -343,7 +343,7 @@ public class TestLabelDataMaker implements LabelPrintDataMaker {
 
 ------
 
-##参考
+## Project use libraries
 
 [AlexMofer/ProjectX](https://github.com/AlexMofer/ProjectX/tree/master/printer)
 
