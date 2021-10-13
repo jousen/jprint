@@ -1,20 +1,20 @@
 # jprint
 
-**Android Bluetooth Print Tool.** 
-
 **Android 蓝牙打印工具库**
 
 ------
 
-## 1、Feature 特性
+## 1、特性 Feature
 
-- Support Android 5.0+       Android 5.0以上系统版本支持
-- Support Only AndroidX    只支持 AndroidX
-- Supports ESC and TSC（Label） Command 支持ESC小票和TSC标签打印命令
+- Android 5.0以上系统版本支持 Support Android 5.0+ 
+- 只支持 AndroidX Support Only AndroidX
+- Command 支持ESC小票和TSC标签打印命令 Supports ESC and TSC（Label）
 
-## 2、Import 依赖
+## 2、依赖 Import
 
-1、Add the JitPack maven repository to the list of repositories 将JitPack存储库添加到您的构建文件中(项目根目录下build.gradle文件)
+1、将JitPack存储库添加到您的构建文件中(项目根目录下build.gradle文件)
+
+Add the JitPack maven repository to the list of repositories 
 
 **build.gradle**
 
@@ -33,13 +33,13 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.jousen:jprint:2.6'
+    implementation 'com.github.jousen:jprint:2.7'
 }
 ```
 
-## 3、Usage 使用
+## 3、使用 Usage
 
-##### 1、Add Bellow Permission 添加下面的权限
+##### 1、添加下面的权限 Add Bellow Permission
 
 ```
 <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -48,13 +48,13 @@ dependencies {
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-if Android 6.0+ ，need android.permission.ACCESS_COARSE_LOCATION and android.permission.ACCESS_FINE_LOCATION to find BluetoothDevice 
-
 大于Android 6.0 ，需要申请android.permission.ACCESS_COARSE_LOCATION 和 android.permission.ACCESS_FINE_LOCATION，用于发现周围的蓝牙设备
+
+if Android 6.0+ ，need android.permission.ACCESS_COARSE_LOCATION and android.permission.ACCESS_FINE_LOCATION to find BluetoothDevice 
 
 ------
 
-##### 2、Search BluetoothDevice  Example 搜索蓝牙设备范例
+##### 2、 搜索蓝牙设备范例 Search BluetoothDevice  Example
 
 In Activity onCreate 在进入Activity初始化后
 
@@ -186,7 +186,7 @@ public interface OnItemClickListener {
 
 ------
 
-##### 3、Activity onDestroy 关闭Activity时
+##### 3、关闭Activity时 Activity onDestroy 
 
 ```
 	@Override
@@ -203,7 +203,7 @@ public interface OnItemClickListener {
 
 ------
 
-##### 4、ESC print 小票打印模式
+##### 4、小票打印模式 ESC print 
 
 ```
 private void printEsc() {
@@ -265,7 +265,7 @@ public class TestDataMaker implements PrintDataMaker {
 }
 ```
 
-##### 5、TSC print 标签打印（必须使用专用的标签打印机）
+##### 5、标签打印（必须使用专用的标签打印机） TSC print 
 
 ```
 private void printLabel() {
