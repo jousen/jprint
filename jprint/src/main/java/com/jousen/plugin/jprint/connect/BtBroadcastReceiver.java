@@ -1,5 +1,6 @@
 package com.jousen.plugin.jprint.connect;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
@@ -14,6 +15,7 @@ public class BtBroadcastReceiver extends BroadcastReceiver {
         this.btReceiverListener = btReceiverListener;
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     public void onReceive(Context context, Intent intent) {
         String intentAction = intent.getAction();

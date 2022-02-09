@@ -33,7 +33,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.jousen:jprint:2.7'
+    implementation 'com.github.jousen:jprint:2.8'
 }
 ```
 
@@ -42,15 +42,22 @@ dependencies {
 ##### 1、添加下面的权限 Add Bellow Permission
 
 ```
-<uses-permission android:name="android.permission.BLUETOOTH" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
 大于Android 6.0 ，需要申请android.permission.ACCESS_COARSE_LOCATION 和 android.permission.ACCESS_FINE_LOCATION，用于发现周围的蓝牙设备
 
-if Android 6.0+ ，need android.permission.ACCESS_COARSE_LOCATION and android.permission.ACCESS_FINE_LOCATION to find BluetoothDevice 
+android.permission.BLUETOOTH_CONNECT和android.permission.BLUETOOTH_SCAN为Android 12新增运行时权限，需主动申请
 
 ------
 
@@ -131,11 +138,12 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.VH
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        BluetoothDevice device = items.get(position);
+        int nowPosition = holder.getAdapterPosition();
+        BluetoothDevice device = items.get(nowPosition);
         String name = device.getName();
         String address = device.getAddress();
         String bound = (device.getBondState() == BluetoothDevice.BOND_BONDED ? "已绑定" : "未绑定");
-        if (position == selectedDevice) {
+        if (nowPosition == selectedDevice) {
             bound = "当前选择的打印设备";
         }
         String info = "名称：" + name + "\n设备：" + address + "\n状态：" + bound;
@@ -146,8 +154,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.VH
                 return;
             }
             if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
-                selectedDevice = position;
-                onItemClickListener.itemClick(position, device);
+                selectedDevice = nowPosition;
+                onItemClickListener.itemClick(nowPosition, device);
                 notifyDataSetChanged();
             }
         });
@@ -354,7 +362,7 @@ Thanks
 # Licenses
 
 ```
-Copyright 2021 jousen
+Copyright 2022 jousen
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

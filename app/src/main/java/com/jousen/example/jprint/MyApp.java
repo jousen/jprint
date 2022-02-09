@@ -1,4 +1,4 @@
-package com.jousen.plugin.jprint;
+package com.jousen.example.jprint;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
-package com.jousen.plugin.jprint;
+package com.jousen.example.jprint;
 
 import com.jousen.plugin.jprint.esc.PrintDataMaker;
 import com.jousen.plugin.jprint.esc.PrinterWriter;

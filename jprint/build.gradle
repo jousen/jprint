@@ -1,19 +1,17 @@
 plugins {
     id 'com.android.library'
-    id 'com.github.dcendents.android-maven'
+    id 'maven-publish'
 }
 
-group = 'com.github.jousen'
-
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 27
-        versionName "2.7"
+        targetSdkVersion 31
+        versionCode 28
+        versionName "2.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -26,10 +24,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
 dependencies {
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.jousen'
+                artifactId = 'jprint'
+            }
+        }
+    }
 }

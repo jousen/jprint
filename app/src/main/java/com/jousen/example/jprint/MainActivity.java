@@ -1,5 +1,6 @@
-package com.jousen.plugin.jprint;
+package com.jousen.example.jprint;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         bindView();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void bindView() {
         //检查蓝牙设置
         if (BtUtil.isBluetoothDisable()) {

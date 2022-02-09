@@ -1,4 +1,4 @@
-package com.jousen.plugin.jprint;
+package com.jousen.example.jprint;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.jousen.plugin.jprint", appContext.getPackageName());
+        assertEquals("com.jousen.example.jprint", appContext.getPackageName());
     }
 }

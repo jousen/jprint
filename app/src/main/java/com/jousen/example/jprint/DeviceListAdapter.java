@@ -1,5 +1,6 @@
-package com.jousen.plugin.jprint;
+package com.jousen.example.jprint;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import java.util.List;
 
@@ -24,13 +26,15 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.VH
         this.onItemClickListener = onItemClickListener;
     }
 
+    @SuppressLint({"MissingPermission", "NotifyDataSetChanged"})
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        BluetoothDevice device = items.get(position);
+        int nowPosition = holder.getAdapterPosition();
+        BluetoothDevice device = items.get(nowPosition);
         String name = device.getName();
         String address = device.getAddress();
         String bound = (device.getBondState() == BluetoothDevice.BOND_BONDED ? "已绑定" : "未绑定");
-        if (position == selectedDevice) {
+        if (nowPosition == selectedDevice) {
             bound = "当前选择的打印设备";
         }
         String info = "名称：" + name + "\n设备：" + address + "\n状态：" + bound;
@@ -41,8 +45,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<DeviceListAdapter.VH
                 return;
             }
             if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
-                selectedDevice = position;
-                onItemClickListener.itemClick(position, device);
+                selectedDevice = nowPosition;
+                onItemClickListener.itemClick(nowPosition, device);
                 notifyDataSetChanged();
             }
         });
