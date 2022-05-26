@@ -33,7 +33,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.jousen:jprint:2.8'
+    implementation 'com.github.jousen:jprint:2.9'
 }
 ```
 
@@ -353,7 +353,7 @@ public class TestLabelDataMaker implements LabelPrintDataMaker {
 
 ## Project use libraries
 
-[AlexMofer/ProjectX](https://github.com/AlexMofer/ProjectX/tree/master/printer)
+[AlexMofer/Printer](https://github.com/AlexMofer/Printer)
 
 Thanks
 
