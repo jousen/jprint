@@ -1,6 +1,6 @@
 # jprint
 
-**Android 蓝牙打印工具库**
+**Android 蓝牙打印工具库 支持蓝牙小票打印 标签打印等**
 
 ------
 
@@ -33,7 +33,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.jousen:jprint:2.9'
+    implementation 'com.github.jousen:jprint:3.0'
 }
 ```
 
@@ -42,22 +42,23 @@ dependencies {
 ##### 1、添加下面的权限 Add Bellow Permission
 
 ```
-<uses-permission
-        android:name="android.permission.BLUETOOTH"
-        android:maxSdkVersion="30" />
-    <uses-permission
-        android:name="android.permission.BLUETOOTH_ADMIN"
-        android:maxSdkVersion="30" />
-    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-    
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!--请求旧设备上的蓝牙权限，可设置android:maxSdkVersion为30。这个兼容性步骤帮助系统只授予你的应用程序所需的蓝牙权限--> 
+<uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+<!--在Android 12以下，发现设备需要定位权限-->  
+<uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+<!--Android 12 蓝牙权限--> 
+<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+<!--如果你的应用程序不使用蓝牙扫描结果得出物理位置信息，可以加上usesPermissionFlags声明你的scan结果不会用于推导出物理位置。--> 
+<uses-permission android:name="android.permission.BLUETOOTH_SCAN"  android:usesPermissionFlags="neverForLocation"/>
 ```
 
 大于Android 6.0 ，需要申请android.permission.ACCESS_COARSE_LOCATION 和 android.permission.ACCESS_FINE_LOCATION，用于发现周围的蓝牙设备
 
-android.permission.BLUETOOTH_CONNECT和android.permission.BLUETOOTH_SCAN为Android 12新增运行时权限，需主动申请
+**android.permission.BLUETOOTH_CONNECT和android.permission.BLUETOOTH_SCAN为Android 12新增运行时权限，需主动申请**
 
 ------
 

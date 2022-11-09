@@ -212,7 +212,7 @@ public abstract class PrinterWriter {
      */
     public void println(String string) throws IOException {
         print(string, CHARSET);
-        write(PrinterUtils.printLineFeed());
+        printLineFeed();
     }
 
     /**
@@ -242,7 +242,7 @@ public abstract class PrinterWriter {
             length--;
         }
         print(line);
-        write(PrinterUtils.printLineFeed());
+        printLineFeed();
     }
 
     /**
@@ -283,7 +283,7 @@ public abstract class PrinterWriter {
             needEmpty--;
         }
         print(str1 + empty + str2, charsetName);
-        write(PrinterUtils.printLineFeed());
+        printLineFeed();
     }
 
     /**
