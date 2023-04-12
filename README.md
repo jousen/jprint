@@ -33,7 +33,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.jousen:jprint:3.1'
+    implementation 'com.github.jousen:jprint:3.2'
 }
 ```
 

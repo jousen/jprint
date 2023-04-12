@@ -6,10 +6,6 @@ import com.jousen.plugin.jprint.label.LabelUtils;
 
 import java.util.Vector;
 
-/**
- * @author 李易航
- * @date 2019/6/28
- */
 public class TestLabelDataMaker implements LabelPrintDataMaker {
     private final int copy;//打印份数
 

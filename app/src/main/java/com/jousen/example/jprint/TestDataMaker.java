@@ -7,10 +7,6 @@ import com.jousen.plugin.jprint.esc.PrinterWriter58mm;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author 李易航
- * @date 2019/6/28
- */
 public class TestDataMaker implements PrintDataMaker {
 
     @Override
